@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 
 
 def dashboard(request):
-    return HttpResponse("Hello this is the dashboard")
+    return render(request,'dashboard.html')
 
 def laagAccounts(request):
     return HttpResponse('this is the laag account page')
@@ -11,7 +11,7 @@ def extras(request):
     return HttpResponse('this is the extras page')
 
 def handlelogin(request):
-    return HttpResponse('login page')
+    return render(request, 'login.html')
 
 def handlelogout(request):
     return HttpResponse('logout page')
