@@ -1,7 +1,12 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
+from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='/login')
 def dashboard(request):
+    
     return render(request,'dashboard.html')
 
 def laagAccounts(request):
@@ -11,10 +16,24 @@ def extras(request):
     return HttpResponse('this is the extras page')
 
 def handlelogin(request):
-    return render(request, 'login.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request=request,username=username, password=password)
+        if user is not None:
+            login(request,user)
+            messages.success(request, "Welcome {username}".format(username=username))
+            return redirect('dashboard')
+        else:
+            messages.error(request, "You are not authorised, please check you credentials and try again later")
+            return redirect('login')
+    else:
+        return render(request, 'login.html') 
 
 def handlelogout(request):
-    return HttpResponse('logout page')
+    logout(request)
+    messages.success(request, "Successfully logged out")
+    return redirect('login')
 
 def cows(request):
     return HttpResponse('cows page')
