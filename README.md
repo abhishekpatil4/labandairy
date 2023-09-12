@@ -12,4 +12,5 @@ A django based web application for managing dairy business
 - Medication record of Animals
 - Admin account which has superuser access of the entire website
 - Admin can create employee accounts with restricted website permissions
+- A dashboard to visualise all the data with graphs
 
