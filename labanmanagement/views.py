@@ -13,8 +13,9 @@ def laagAccounts(request):
     return HttpResponse('this is the laag account page')
 
 def extras(request):
-    return HttpResponse('this is the extras page')
+    return render(request, "404.html")
 
+ 
 def handlelogin(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -25,7 +26,7 @@ def handlelogin(request):
             messages.success(request, "Welcome {username}".format(username=username))
             return redirect('dashboard')
         else:
-            messages.error(request, "You are not authorised, please check you credentials and try again later")
+            messages.error(request, "You are not authorised, please check your credentials and try again later")
             return redirect('login')
     else:
         return render(request, 'login.html') 
