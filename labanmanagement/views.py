@@ -9,8 +9,11 @@ def dashboard(request):
     
     return render(request,'dashboard.html')
 
-def laagAccounts(request):
+def customers(request):
     return HttpResponse('this is the laag account page')
+
+def pay_as_you_buy(request):
+    return HttpResponse("hello this is a dummy text")
 
 def extras(request):
     return render(request, "404.html")
@@ -37,7 +40,22 @@ def handlelogout(request):
     return redirect('login')
 
 def cows(request):
-    return HttpResponse('cows page')
+    return render(request,"cows.html")
+
+def calves(request):
+    return render(request, "calves.html")
+
+def milkProductionCow(request):
+    return HttpResponse("{'hello':'hello'}")
+
+def milkProductionDaily(request):
+    return HttpResponse("{'hello':'hello'}")
+
+def revenue(request):
+    return HttpResponse("revenue")
+
+def expenditure(request):
+    return HttpResponse("expenditure")
 
 def handlecows(request, slug):
     return HttpResponse('handle cows')
