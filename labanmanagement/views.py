@@ -10,7 +10,7 @@ def dashboard(request):
     return render(request,'dashboard.html')
 
 def customers(request):
-    return HttpResponse('this is the laag account page')
+    return HttpResponse('this is the customers page')
 
 def pay_as_you_buy(request):
     return HttpResponse("hello this is a dummy text")
