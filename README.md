@@ -14,3 +14,15 @@ A django based web application for managing dairy business
 - Admin can create employee accounts with restricted website permissions
 - A dashboard to visualise all the data with graphs
 
+## Demo
+Clone the repo
+
+```bash
+  git clone https://github.com/WaniAthar/labandairy.git
+```
+
+Run
+```bash
+  cd labandairy 
+  python manage.py runserver
+```
